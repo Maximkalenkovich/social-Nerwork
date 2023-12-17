@@ -2,6 +2,7 @@
   display: grid;
  max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   grid-template-areas:
           'h h'
             'n c';
@@ -22,5 +23,12 @@
   background-color: aqua;
 }
 .header img {
-  width: 50px;
+    width: 50px;
+}
+.img-content {
+    max-width: 1200px;
+    width: 100%;
+   max-height: 400px ;
+    height: 100%;
+
 }
