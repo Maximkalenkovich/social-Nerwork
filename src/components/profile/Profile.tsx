@@ -17,6 +17,15 @@ export const Profile = () => {
             <div className={s.item}>post 1</div>
             <div className={s.item}>post 2</div>
             <div className={s.item}>post 3</div>
+            <div className={s.item}>post 1</div>
+            <div className={s.item}>post 2</div>
+            <div className={s.item}>post 3</div>
+            <div className={s.item}>post 1</div>
+            <div className={s.item}>post 2</div>
+            <div className={s.item}>post 3</div>
+            <div className={s.item}>post 1</div>
+            <div className={s.item}>post 2</div>
+            <div className={s.item}>post 3</div>
 
         </div>
     )
