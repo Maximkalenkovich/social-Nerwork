@@ -1,0 +1,11 @@
+.header {
+    grid-area: h;
+    background-color: aquamarine;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(152, 240, 255, 0.28);
+
+}
+/*logo*/
+.logo {
+    width: 50px;
+}

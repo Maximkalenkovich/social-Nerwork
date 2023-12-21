@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import Logo from '../src/pngwing.com.png'
-import {Header} from "./components/Header";
-import {NavBar} from "./components/NavBar";
-import {Profile} from "./components/Profile";
+import {Header} from "./components/header/Header";
+import {NavBar} from "./components/navBar/NavBar";
+import {Profile} from "./components/profile/Profile";
 
 
 function App() {

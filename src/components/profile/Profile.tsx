@@ -1,10 +1,12 @@
 import React from "react";
-import HeaderPhoto from '../components/images/headerPhoto.jpg'
-
+import HeaderPhoto from '../images/headerPhoto.jpg'
+import './Profile.css'
 export const Profile = () => {
     return (
         <div className={'content'}>
             <div>
+
+                {/*далее это бкдет кнопка картинка для свайпа*/}
                 <img className={'img-content'}
                      src={HeaderPhoto}
                      alt={'image'}/></div>
