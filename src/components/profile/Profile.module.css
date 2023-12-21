@@ -6,10 +6,13 @@
 }
 
 /*styled photo for profile*/
-.img-content {
+.imgContent {
     max-width: 1200px;
     width: 100%;
     max-height: 350px;
     object-fit: cover;
+}
 
+.item {
+    color: #ff5500;
 }

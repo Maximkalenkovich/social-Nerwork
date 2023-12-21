@@ -6,7 +6,8 @@
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.nav a {
+
+.nav .item {
     display: block;
     text-decoration: none;
     color: #666;
@@ -14,15 +15,14 @@
     cursor: pointer;
     font-family: 'Teko', sans-serif;
     text-transform: uppercase;
-
 }
-.item a:hover {
+.item:hover {
     color: #333;
 }
-.nav .active {
+.item:active {
     color: #ff5500;
 }
-.nav div {
+.item {
     margin-bottom: 10px;
     font-family: 'Lato', sans-serif;
 }
