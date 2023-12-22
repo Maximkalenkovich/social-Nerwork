@@ -3,7 +3,8 @@ import './App.css';
 import Logo from '../src/pngwing.com.png'
 import {Header} from "./components/header/Header";
 import {NavBar} from "./components/navBar/NavBar";
-import {Profile} from "./components/profile/Profile";
+import {Profile} from "./components/profile/mypost/Profile";
+
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <div className="app-wrapper">
             <Header/>
             <NavBar/>
+
             <Profile/>
         </div>
     );

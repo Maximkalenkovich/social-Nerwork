@@ -1,6 +1,9 @@
 import React from "react";
-import HeaderPhoto from '../images/headerPhoto.jpg'
+import HeaderPhoto from '../../images/headerPhoto.jpg'
 import s from './Profile.module.css'
+import {Mypost} from "../Mypost";
+
+console.log(s)
 export const Profile = () => {
     return (
         <div className={s.content}>
@@ -11,12 +14,7 @@ export const Profile = () => {
                      src={HeaderPhoto}
                      alt={'image'}/></div>
             <div>ava + description</div>
-            <div>my post
-                <div>new post</div>
-            </div>
-            <div className={s.item}>post 1</div>
-            <div className={s.item}>post 2</div>
-            <div className={s.item}>post 3</div>
+         <Mypost />
 
         </div>
     )
