@@ -8,6 +8,8 @@ export const Mypost = () => {
 <div>
     <div>my post
         <div>new post</div>
+        <textarea></textarea>
+        <button>add message</button>
     </div>
     <div className={s.item}>post 1</div>
     <div className={s.item}>post 2</div>
