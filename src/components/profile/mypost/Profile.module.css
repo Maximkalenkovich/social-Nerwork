@@ -1,15 +1,1 @@
-.content {
-    grid-area: c;
-    background-color: aqua;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left:5px ;
-}
-
-/*styled photo for profile*/
-.imgContent {
-    max-width: 1200px;
-    width: 100%;
-    max-height: 350px;
-    object-fit: cover;
-}
 
