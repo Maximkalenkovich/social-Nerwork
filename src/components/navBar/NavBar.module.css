@@ -2,28 +2,32 @@
 .nav {
     background-color: rgba(152, 240, 255, 0.28);
     max-width: 150px;
-    width: 100%;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s, padding 0.3s;
 }
-
+.hidden {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
 .nav .item {
     display: block;
-    text-decoration: none;
-    color: #666;
     font-weight: 500;
     cursor: pointer;
     font-family: 'Teko', sans-serif;
     text-transform: uppercase;
 }
-.item:hover {
-    color: #333;
-}
-.item:active {
-    color: #ff5500;
-}
+
 .item {
     margin-bottom: 10px;
     font-family: 'Lato', sans-serif;
 }
+.navlink{
+    text-decoration: none;
+    color: #666;
+}
 
+.active{
+    text-decoration: none;
+    color: deeppink;
+}

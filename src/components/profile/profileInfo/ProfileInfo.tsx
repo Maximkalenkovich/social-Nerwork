@@ -1,8 +1,8 @@
 import React from "react";
 import HeaderPhoto from '../../images/headerPhoto.jpg'
-import {Mypost} from "../Mypost";
 
-export const Profile = () => {
+
+export const ProfileInfo = () => {
     return (
         <div >
             <div>
@@ -12,7 +12,6 @@ export const Profile = () => {
                      src={HeaderPhoto}
                      alt={'image'}/></div>
             <div>ava + description</div>
-         <Mypost />
 
         </div>
     )

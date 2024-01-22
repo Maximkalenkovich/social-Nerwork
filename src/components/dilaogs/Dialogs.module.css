@@ -1,3 +1,50 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
 
+.dialogItems {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+}
 
+.dialog {
+    color: #333;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dialog:hover {
+    background-color: #f4f4f4;
+}
+
+.dialogItems .active {
+    color: deeppink;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.messages {
+    background-color: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.message {
+    color: #555;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f6f6f6;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.message:hover {
+    background-color: #f4f4f4;
+}
 
