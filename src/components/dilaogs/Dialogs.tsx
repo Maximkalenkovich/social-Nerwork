@@ -17,14 +17,15 @@ export const Dialogs = () => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
-                <DialogItem name={dataDialogs[0].name} id={dataDialogs[0].id} />
-                <DialogItem name={dataDialogs[1].name} id={dataDialogs[1].id} />
+                {
+                    dataDialogs.map((el)=>(<DialogItem name={el.name} id={el.id}/>))
+                }
 
             </div>
             <div className={s.messages}>
-                <Message message={dataMessage[0].message}/>
-                <Message message={dataMessage[1].message}/>
-                <Message message={dataMessage[2].message}/>
+                {
+                    dataMessage.map(el => <Message message={el.message}/>)
+                }
             </div>
 
         </div>

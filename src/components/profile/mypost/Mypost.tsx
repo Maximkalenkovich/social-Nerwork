@@ -15,7 +15,5 @@ export const Mypost = () => {
     <Post message = {dataPost[1].message} like={dataPost[1].like}/>
 </div>
 
-
-
     )
 }
