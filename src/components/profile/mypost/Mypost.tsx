@@ -1,14 +1,9 @@
 import React from "react";
 import {Post} from "./post/Post";
+import {ProfilePageType} from "../../../redux/redux";
 
-export interface PostProps {
-    post: {
-        message: string;
-        like: number;
-    }[];
-}
 
-export const Mypost: React.FC<PostProps> = ({post}) => {
+export const Mypost: React.FC<ProfilePageType> = ({dataPost}) => {
 
     return (
 <div>
@@ -16,7 +11,7 @@ export const Mypost: React.FC<PostProps> = ({post}) => {
         <textarea></textarea>
         <button>add message</button>
 
-    {post.map(post => <Post message={post.message} like={post.like}/>)}
+    {dataPost.map(post => <Post message={post.message} like={post.like}/>)}
     <p></p>
 </div>
 
