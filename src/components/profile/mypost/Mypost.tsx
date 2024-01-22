@@ -11,8 +11,9 @@ export const Mypost = () => {
         <div>new post</div>
         <textarea></textarea>
         <button>add message</button>
-    <Post message = {dataPost[0].message} like={dataPost[0].like}/>
-    <Post message = {dataPost[1].message} like={dataPost[1].like}/>
+
+    {dataPost.map(post => <Post message={post.message} like={post.like}/>)}
+
 </div>
 
     )

@@ -14,6 +14,8 @@ export const Dialogs = () => {
         {message: 'how are u' },
         {message: 'Beach' }]
 
+
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
