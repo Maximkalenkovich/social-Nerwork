@@ -25,9 +25,6 @@ export const Header = () =>{
                 navBar && <div >
                     <NavBar onChange={()=>hideMenu()} onClick={onChangeItem}/>
                 </div>
-
-
-
             }
 
 

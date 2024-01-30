@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {Header} from "./components/header/Header";
 import {Dialogs} from "./components/dilaogs/Dialogs";
-import {BrowserRouter, Route} from "react-router-dom";
+import { Route} from "react-router-dom";
 import {News} from "./components/news/News";
 import {Music} from "./components/musik/Music";
 import {Profile} from "./components/profile/Profile";
@@ -15,7 +15,7 @@ interface AppProps {
 const App: React.FC<AppProps> = ({state}) => {
 
     return (
-        <BrowserRouter>
+
             <div className="app-wrapper">
                 <Header/>
                 <div className='app-wrapper-content'>
@@ -26,7 +26,7 @@ const App: React.FC<AppProps> = ({state}) => {
                 </div>
             </div>
 
-        </BrowserRouter>
+
 
     );
 }
