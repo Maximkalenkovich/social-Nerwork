@@ -5,19 +5,17 @@
   margin: 0 auto;
   grid-template-areas:
           'h h'
-            'n c';
-  grid-template-rows: 50px 1fr;
-  grid-template-columns: 2fr 11fr;
+            'n n';
+  grid-template-rows: 50px 2fr;
+  grid-template-columns: 1fr 10fr;
   grid-gap: 5px ;
 }
 
 .app-wrapper-content {
 
-
-    grid-area: c;
-
+    grid-area: n;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: 5px;
+
 
 
     /*styled photo for profile*/

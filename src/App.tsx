@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import {Header} from "./components/header/Header";
-import {NavBar} from "./components/navBar/NavBar";
 import {Dialogs} from "./components/dilaogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 import {News} from "./components/news/News";
@@ -19,15 +18,12 @@ const App: React.FC<AppProps> = ({state}) => {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <NavBar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={() => <Dialogs  {...state.messagesPage}/>}/>
                     <Route path='/profile' render={() => <Profile {...state.profilePage}/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                 </div>
-
-
             </div>
 
         </BrowserRouter>
