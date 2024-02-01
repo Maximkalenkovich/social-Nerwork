@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderPhoto from '../../images/headerPhoto.jpg'
 import s from './Post.module.css'
 
 

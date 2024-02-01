@@ -1,3 +1,4 @@
+import {stat} from "fs";
 
 export type MessageType = {
     message:string
@@ -51,11 +52,20 @@ export const state:RootStateType = {
     },
     sidebar:{}
 
-
 }
 
 
 
+export const addPost = (post: string)=>{
+
+    let newPost: ProfileType = {
+        id:new Date().getTime(),
+        message: post,
+        like:0
+    }
+
+    state.profilePage.dataPost.push(newPost)
+}
 
 
 

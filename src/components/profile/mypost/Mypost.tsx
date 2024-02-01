@@ -1,18 +1,31 @@
-import React from "react";
+import React  from "react";
 import {Post} from "./post/Post";
-import {ProfilePageType} from "../../../redux/redux";
+import {addPost, ProfilePageType} from "../../../redux/redux";
 
 
-export const Mypost: React.FC<ProfilePageType> = ({dataPost}) => {
+ type ProfilePostType = {
+    addPostCallback:(post:string)=>void
+}
+
+export const Mypost: React.FC<ProfilePageType & ProfilePostType> = ({dataPost,addPostCallback}) => {
+
+
+    const newPostAdd = React.createRef<HTMLTextAreaElement>()
+
+    const onClickValue = () =>{
+        if(newPostAdd.current){
+            addPostCallback(newPostAdd.current.value )
+        }
+
+
+    }
 
     return (
 <div>
         <div>new post</div>
-        <textarea></textarea>
-        <button>add message</button>
-
+        <textarea ref={newPostAdd}></textarea>
+        <button onClick={onClickValue}>add message</button>
     {dataPost.map(post => <Post message={post.message} like={post.like}/>)}
-    <p></p>
 </div>
 
     )
