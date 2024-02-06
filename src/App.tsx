@@ -6,14 +6,15 @@ import { Route} from "react-router-dom";
 import {News} from "./components/news/News";
 import {Music} from "./components/musik/Music";
 import {Profile} from "./components/profile/Profile";
-import { RootStateType} from "./redux/redux";
+import {RootStateType} from "./redux/redux";
 
 type AppProps = {
     state: RootStateType
     addPost: (post:string )=> void
+    newAddPostCallback:(newPost:string)=>void
 }
 
-const App: React.FC<AppProps> = ({state,addPost}) => {
+const App: React.FC<AppProps> = ({state,addPost,newAddPostCallback}) => {
 
     return (
 
@@ -21,7 +22,7 @@ const App: React.FC<AppProps> = ({state,addPost}) => {
                 <Header/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={() => <Dialogs  {...state.messagesPage}/>}/>
-                    <Route path='/profile' render={() => <Profile {...state.profilePage} addPostCallback={addPost}/>}/>
+                    <Route path='/profile' render={() => <Profile {...state.profilePage} addPostCallback={addPost} newAddPostCallback={newAddPostCallback}/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                 </div>

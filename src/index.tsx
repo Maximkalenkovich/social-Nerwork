@@ -1,17 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+
 import './index.css';
-import App from './App';
-import {addPost, state} from "./redux/redux";
-import {BrowserRouter} from "react-router-dom";
+import {state} from "./redux/redux";
+import {renderTree} from "./components/render/renderTree";
 
 
 
 
-ReactDOM.render(
-    <BrowserRouter>
-        <App state = {state} addPost={addPost}/>
-    </BrowserRouter>
-    ,
-  document.getElementById('root')
-);
+renderTree(state)

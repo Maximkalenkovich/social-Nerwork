@@ -1,4 +1,4 @@
-import {stat} from "fs";
+import {renderTree} from "../components/render/renderTree";
 
 export type MessageType = {
     message:string
@@ -15,6 +15,7 @@ export type ProfileType ={
 
 export type ProfilePageType ={
     dataPost: ProfileType[]
+    newPost: string
 }
 
 export type MessagePageType ={
@@ -36,7 +37,7 @@ export const state:RootStateType = {
             {id: 1, message: "Hi, how are u", like: 21},
             {id:2, message: "My first post", like: 22}
         ],
-
+newPost: ''
     },
     messagesPage: {
         dataMessage: [
@@ -54,8 +55,6 @@ export const state:RootStateType = {
 
 }
 
-
-
 export const addPost = (post: string)=>{
 
     let newPost: ProfileType = {
@@ -65,9 +64,14 @@ export const addPost = (post: string)=>{
     }
 
     state.profilePage.dataPost.push(newPost)
+    renderTree(state)
 }
 
+export const changeNewPost = (newPost: string)=>{
 
+state.profilePage.newPost = newPost
+    renderTree(state)
+}
 
 
 
