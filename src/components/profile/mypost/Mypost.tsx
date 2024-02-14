@@ -1,35 +1,34 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./post/Post";
-import { ProfilePageType} from "../../../redux/redux";
+import {ActionType, addPostActionCreate, changeNewPostActionCreate, ProfilePageType} from "../../../redux/redux";
 
-
- type ProfilePostType = {
-    addPostCallback:(post:string)=>void
-     changeNewTextCallback:(newPost:string)=>void
+type ProfilePostType = {
+    dispatch: (action: ActionType) => void
 }
 
-export const Mypost: React.FC<ProfilePageType & ProfilePostType> = ({newPost,dataPost,addPostCallback,changeNewTextCallback}) => {
+export const Mypost: React.FC<ProfilePageType & ProfilePostType> = ({
+                                                                        newPost,
+                                                                        dataPost,
+                                                                        dispatch
+                                                                    }) => {
 
-
-    // const newPostAdd = React.createRef<HTMLTextAreaElement>()
-
-    const onClickValue = () =>{
-            addPostCallback(newPost)
-        changeNewTextCallback('')
+    const onClickValue = () => {
+        dispatch(addPostActionCreate(newPost))
     }
 
-   const onChangeHandler =(e: ChangeEvent<HTMLTextAreaElement>)=>{
-      changeNewTextCallback(e.currentTarget.value)
-   }
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+      let currentPost = (e.currentTarget.value)
+        dispatch(changeNewPostActionCreate(currentPost))
+    }
 
 
     return (
-<div>
-        <div>new post</div>
-        <textarea  value={newPost} onChange={onChangeHandler} ></textarea>
-        <button onClick={onClickValue}>add message</button>
-    {dataPost.map(post => <Post message={post.message} like={post.like}/>)}
-</div>
+        <div>
+            <div>new post</div>
+            <textarea value={newPost} onChange={onChangeHandler}></textarea>
+            <button onClick={onClickValue}>add message</button>
+            {dataPost.map(post => <Post message={post.message} like={post.like}/>)}
+        </div>
 
     )
 }

@@ -2,20 +2,19 @@
 import {Mypost} from "./mypost/Mypost";
 import s from './Profile.module.css'
 import React from "react";
-import {ProfilePageType} from "../../redux/redux";
+import {ActionType, ProfilePageType} from "../../redux/redux";
 
 
 type ProfilePostType = {
-      addPostCallback:(post:string)=>void
-    newAddPostCallback:(newPost:string)=>void
+    dispatch:(action:ActionType)=>void
   }
 
-export const Profile: React.FC<ProfilePageType & ProfilePostType> = ({newPost,dataPost,addPostCallback,newAddPostCallback}) => {
+export const Profile: React.FC<ProfilePageType & ProfilePostType> = ({newPost,dataPost,dispatch}) => {
 
     return(
         <div className={s.profile}>
             <ProfileInfo />
-            <Mypost dataPost={dataPost} addPostCallback={addPostCallback} newPost={newPost} changeNewTextCallback={newAddPostCallback}/>
+            <Mypost dataPost={dataPost} dispatch = {dispatch} newPost={newPost}/>
         </div>
 
     )

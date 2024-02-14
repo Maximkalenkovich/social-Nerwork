@@ -5,7 +5,6 @@ export const Message = (props: MessageProps) => {
     return (
         <div>
             {props.message}
-
         </div>
     )
 }

@@ -1,22 +1,26 @@
 import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {Message} from "./message/Message";
-import React from "react";
-import {MessagePageType, RootStateType} from "../../redux/redux";
+import React, {ChangeEvent} from "react";
+import {ActionType, addMessageActionCreate, changeNewMessageActionCreate, MessagePageType} from "../../redux/redux";
+
+type MessageType ={
+    dispatch:(action:ActionType)=>void
+}
+
+
+export const Dialogs:React.FC<MessagePageType & MessageType> = ({dataMessage,dataDialogs,newMessage,dispatch}) => {
 
 
 
-
-export const Dialogs:React.FC<MessagePageType> = ({dataMessage,dataDialogs}) => {
-
-
-    const LinkTextarea = React.createRef<HTMLTextAreaElement>()
-
-    const AddMessageButton = () =>{
-        alert(LinkTextarea.current?.value)
+    const addMessageButton = () =>{
+dispatch(addMessageActionCreate(newMessage))
     }
 
-
+const onChangeHandlerMessage = (e: ChangeEvent<HTMLTextAreaElement>)=>{
+   let currentMessage = e.currentTarget.value
+dispatch(changeNewMessageActionCreate(currentMessage))
+}
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
@@ -29,8 +33,8 @@ export const Dialogs:React.FC<MessagePageType> = ({dataMessage,dataDialogs}) => 
                 {
                     dataMessage.map(el => <Message message={el.message}/>)
                 }
-                <textarea ref={LinkTextarea}></textarea>
-                <button onClick={AddMessageButton}>отправить</button>
+                <textarea value={newMessage} onChange={onChangeHandlerMessage}></textarea>
+                <button onClick={addMessageButton}>отправить</button>
             </div>
 
         </div>
