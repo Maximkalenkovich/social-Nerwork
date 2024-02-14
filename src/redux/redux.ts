@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
+
 export type MessageType = {
     id: number
     message: string
@@ -23,7 +27,7 @@ export type MessagePageType = {
     dataDialogs: DialogType[]
     newMessage: string
 }
-type SideBar = {}
+export type SideBar = {}
 
 export type RootStateType = {
     profilePage: ProfilePageType
@@ -101,31 +105,10 @@ let store: StoreType = {
         return this._state
     },
     dispatch(action: ActionType) {
-        if (action.type === 'ADD-POST') {
-            let newPost: ProfileType = {
-                id: new Date().getTime(),
-                message: action.postText,
-                like: 0
-            }
-            this._state.profilePage.dataPost.push(newPost)
-            this._state.profilePage.newPost = ''
-            this._onChange()
-
-        } else if (action.type === 'CHANGE-POST') {
-            this._state.profilePage.newPost = action.newPost
-            this._onChange()
-        } else if (action.type === 'ADD-MESSAGE') {
-            let myNewMessage: MessageType = {
-                id: new Date().getTime(),
-                message: action.myMessage
-            }
-            this._state.messagesPage.dataMessage.push(myNewMessage)
-            this._state.messagesPage.newMessage = ''
-            this._onChange()
-        } else if (action.type === 'CHANGE-MESSAGE') {
-            this._state.messagesPage.newMessage = action.newMessage
-            this._onChange()
-        }
+        this._state.profilePage =  profileReducer(this._state.profilePage, action)
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
+        this._state.sidebar=  sidebarReducer(this._state.sidebar, action)
+        this._onChange()
     }
 }
 export default store
