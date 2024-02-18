@@ -1,33 +1,35 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./post/Post";
-import {ActionType, addPostActionCreate, changeNewPostActionCreate, ProfilePageType} from "../../../redux/redux";
+import {ProfilePageType} from "../../../redux/store";
+
 
 type ProfilePostType = {
-    dispatch: (action: ActionType) => void
+    updateNewPostText: (newPost:string) => void
+    addPost: () => void
+    profilePage:ProfilePageType
 }
 
-export const Mypost: React.FC<ProfilePageType & ProfilePostType> = ({
-                                                                        newPost,
-                                                                        dataPost,
-                                                                        dispatch
+export const Mypost: React.FC<ProfilePostType> = ({
+    profilePage,
+                                                                        updateNewPostText,
+                                                                        addPost
                                                                     }) => {
 
+let state = profilePage
     const onClickValue = () => {
-        dispatch(addPostActionCreate(newPost))
+        addPost()
     }
-
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      let currentPost = (e.currentTarget.value)
-        dispatch(changeNewPostActionCreate(currentPost))
+        let currentPost = (e.currentTarget.value)
+        updateNewPostText(currentPost)
     }
-
 
     return (
         <div>
             <div>new post</div>
-            <textarea value={newPost} onChange={onChangeHandler}></textarea>
+            <textarea value={profilePage.newPost} onChange={onChangeHandler}></textarea>
             <button onClick={onClickValue}>add message</button>
-            {dataPost.map(post => <Post message={post.message} like={post.like}/>)}
+            {profilePage.dataPost.map(post => <Post message={post.message} like={post.like}/>)}
         </div>
 
     )

@@ -2,38 +2,42 @@ import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {Message} from "./message/Message";
 import React, {ChangeEvent} from "react";
-import {ActionType, addMessageActionCreate, changeNewMessageActionCreate, MessagePageType} from "../../redux/redux";
+import {ActionType, MessagePageType} from "../../redux/store";
+
 
 type MessageType ={
-    dispatch:(action:ActionType)=>void
+    addMessage:()=>void
+    onChangeMessage:(text:string)=>void
+    dialogPage:MessagePageType
 }
 
 
-export const Dialogs:React.FC<MessagePageType & MessageType> = ({dataMessage,dataDialogs,newMessage,dispatch}) => {
+export const Dialogs:React.FC<MessageType> = ({addMessage,onChangeMessage,dialogPage}) => {
 
 
-
+let state = dialogPage
     const addMessageButton = () =>{
-dispatch(addMessageActionCreate(newMessage))
+addMessage()
     }
 
 const onChangeHandlerMessage = (e: ChangeEvent<HTMLTextAreaElement>)=>{
    let currentMessage = e.currentTarget.value
-dispatch(changeNewMessageActionCreate(currentMessage))
+    onChangeMessage(currentMessage)
+
 }
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
                 {
-                   dataDialogs.map((dialog)=>(<DialogItem name={dialog.name} id={dialog.id}/>))
+                   dialogPage.dataDialogs.map((dialog)=>(<DialogItem name={dialog.name} id={dialog.id}/>))
                 }
 
             </div>
             <div className={s.messages}>
                 {
-                    dataMessage.map(el => <Message message={el.message}/>)
+                    dialogPage.dataMessage.map(el => <Message message={el.message}/>)
                 }
-                <textarea value={newMessage} onChange={onChangeHandlerMessage}></textarea>
+                <textarea value={dialogPage.newMessage} onChange={onChangeHandlerMessage}></textarea>
                 <button onClick={addMessageButton}>отправить</button>
             </div>
 

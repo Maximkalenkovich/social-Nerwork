@@ -1,5 +1,5 @@
-import profileReducer from "./profileReducer";
-import dialogsReducer from "./dialogsReducer";
+import profileReducer, {addPostActionCreate, changeNewPostActionCreate} from "./profileReducer";
+import dialogsReducer, {addMessageActionCreate, changeNewMessageActionCreate} from "./dialogsReducer";
 import sidebarReducer from "./sidebarReducer";
 
 export type MessageType = {
@@ -18,8 +18,8 @@ export type ProfileType = {
 }
 
 export type ProfilePageType = {
-    dataPost: ProfileType[]
-    newPost: string
+    dataPost: ProfileType[],
+    newPost: string,
 }
 
 export type MessagePageType = {
@@ -44,32 +44,10 @@ export type StoreType = {
     dispatch: (action: ActionType) => void
 }
 
-
 export type ActionType = ReturnType<typeof addPostActionCreate> |
     ReturnType<typeof changeNewPostActionCreate> |
     ReturnType<typeof changeNewMessageActionCreate> |
     ReturnType<typeof addMessageActionCreate>
-
-export const addPostActionCreate = (postText: string) => ({
-    type: 'ADD-POST',
-    postText: postText
-
-}) as const
-export const changeNewPostActionCreate = (newPost: string) => ({
-    type: 'CHANGE-POST',
-    newPost: newPost
-}) as const
-export const changeNewMessageActionCreate = (newMessage: string) => ({
-    type: 'CHANGE-MESSAGE',
-    newMessage: newMessage
-}) as const
-
-export const addMessageActionCreate = (myMessage: string) => {
-    return {
-        type: 'ADD-MESSAGE',
-        myMessage: myMessage
-    } as const
-}
 
 let store: StoreType = {
     _state: {
