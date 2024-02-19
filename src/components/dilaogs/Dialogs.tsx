@@ -2,11 +2,11 @@ import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {Message} from "./message/Message";
 import React, {ChangeEvent} from "react";
-import {ActionType, MessagePageType} from "../../redux/store";
+import {MessagePageType} from "../../redux/store";
 
 
 type MessageType ={
-    addMessage:()=>void
+    addMessage:(newMessahe:string)=>void
     onChangeMessage:(text:string)=>void
     dialogPage:MessagePageType
 }
@@ -17,7 +17,7 @@ export const Dialogs:React.FC<MessageType> = ({addMessage,onChangeMessage,dialog
 
 let state = dialogPage
     const addMessageButton = () =>{
-addMessage()
+addMessage(dialogPage.newMessage)
     }
 
 const onChangeHandlerMessage = (e: ChangeEvent<HTMLTextAreaElement>)=>{

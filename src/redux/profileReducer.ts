@@ -1,15 +1,21 @@
-import {ActionType, ProfilePageType, ProfileType} from "./store";
+import {ActionType} from "./store";
 
+export type ProfileType = {
+    message: string
+    like: number
+    id: number
+}
+export type ProfileInitialStateType = typeof initialState
 
-
-let initialState:ProfilePageType = {
+let initialState = {
     dataPost: [
         {id: 1, message: "Hi, how are u", like: 21},
         {id: 2, message: "My first post", like: 22}
-    ],
-        newPost: ''
+    ]as ProfileType[],
+        newPost: 'пркыуерку'
 }
-const profileReducer = (state:ProfilePageType=initialState,action:ActionType) => {
+
+const profileReducer = (state:ProfileInitialStateType=initialState,action:ActionType) => {
 
         switch (action.type) {
             case 'ADD-POST':

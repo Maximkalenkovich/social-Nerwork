@@ -1,21 +1,13 @@
-import profileReducer, {addPostActionCreate, changeNewPostActionCreate} from "./profileReducer";
-import dialogsReducer, {addMessageActionCreate, changeNewMessageActionCreate} from "./dialogsReducer";
+import profileReducer, {addPostActionCreate, changeNewPostActionCreate, ProfileType} from "./profileReducer";
+import dialogsReducer, {
+    addMessageActionCreate,
+    changeNewMessageActionCreate,
+    DialogType,
+    MessageType
+} from "./dialogsReducer";
 import sidebarReducer from "./sidebarReducer";
 
-export type MessageType = {
-    id: number
-    message: string
 
-}
-export type DialogType = {
-    name: string
-    id: number
-}
-export type ProfileType = {
-    message: string
-    like: number
-    id: number
-}
 
 export type ProfilePageType = {
     dataPost: ProfileType[],

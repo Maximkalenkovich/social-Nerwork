@@ -4,20 +4,20 @@ import {ProfilePageType} from "../../../redux/store";
 
 
 type ProfilePostType = {
-    updateNewPostText: (newPost:string) => void
-    addPost: () => void
-    profilePage:ProfilePageType
+    updateNewPostText: (newPost: string) => void
+    addPost: (text: string) => void
+    profilePage: ProfilePageType
 }
 
 export const Mypost: React.FC<ProfilePostType> = ({
-    profilePage,
-                                                                        updateNewPostText,
-                                                                        addPost
-                                                                    }) => {
+                                          profilePage,
+                                          updateNewPostText,
+                                          addPost
+                                      }) => {
 
-let state = profilePage
+
     const onClickValue = () => {
-        addPost()
+        addPost(profilePage.newPost)
     }
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let currentPost = (e.currentTarget.value)

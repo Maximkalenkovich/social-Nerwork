@@ -1,27 +1,69 @@
-
-import React from "react";
-import {StoreType} from "../../redux/store";
-import {addMessageActionCreate, changeNewMessageActionCreate} from "../../redux/dialogsReducer";
+import {
+    addMessageActionCreate,
+    changeNewMessageActionCreate,
+    DialogsInitialStateType,
+} from "../../redux/dialogsReducer";
 import {Dialogs} from "./Dialogs";
+import {connect} from "react-redux";
+import {AppStateType} from "../../redux/reduxStore";
+import {Dispatch} from "redux";
 
-type MessageType ={
-   store:StoreType
+
+type mapStateToPropsType = {
+    dialogPage:DialogsInitialStateType
 }
 
+type maDispatchToPropsType = {
+  addMessage:(newMessage:string)=>void
+    onChangeMessage:(text:string)=>void
+}
 
-export const DialogsContainer:React.FC<MessageType> = ({store}) => {
-
-    let state = store.getState().messagesPage
-
-    const addMessageButton = () =>{
-store.dispatch(addMessageActionCreate(store._state.messagesPage.newMessage))
+let mapStateToProps = (state:AppStateType):mapStateToPropsType=>{
+    return{
+        dialogPage:state.messagesPage
     }
-
-const onChangeHandlerMessage = (text:string)=>{
-
-store.dispatch(changeNewMessageActionCreate(text))
 }
-    return (
-<Dialogs addMessage={addMessageButton} onChangeMessage={onChangeHandlerMessage} dialogPage={state}/>
-    );
-};
+let mapDispatchToProps = (dispatch:Dispatch):maDispatchToPropsType =>{
+    return{
+        addMessage:(newMessage:string)=>{
+            dispatch(addMessageActionCreate(newMessage))
+        },
+        onChangeMessage:(text:string)=>{
+            dispatch(changeNewMessageActionCreate(text))
+        }
+    }
+}
+
+
+export const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dialogs)
+
+
+
+
+
+
+
+
+
+// type MessageType ={
+//    store:StoreType
+// }
+//
+//
+//
+// export const DialogsContainer:React.FC<MessageType> = ({store}) => {
+//
+//     let state = store.getState().messagesPage
+//
+//     const addMessageButton = () =>{
+// store.dispatch(addMessageActionCreate(store._state.messagesPage.newMessage))
+//     }
+//
+// const onChangeHandlerMessage = (text:string)=>{
+//
+// store.dispatch(changeNewMessageActionCreate(text))
+// }
+//     return (
+// <Dialogs addMessage={addMessageButton} onChangeMessage={onChangeHandlerMessage} dialogPage={state}/>
+//     );
+// };
