@@ -12,7 +12,7 @@ let initialState = {
         {id: 1, message: "Hi, how are u", like: 21},
         {id: 2, message: "My first post", like: 22}
     ]as ProfileType[],
-        newPost: 'пркыуерку'
+        newPost: ''
 }
 
 const profileReducer = (state:ProfileInitialStateType=initialState,action:ActionType) => {
@@ -24,13 +24,9 @@ const profileReducer = (state:ProfileInitialStateType=initialState,action:Action
                     message: action.postText,
                     like: 0
                 };
-                state.dataPost.push(newPost);
-                state.newPost = '';
-                return  state;
-
+                return  {...state,dataPost: [...state.dataPost,newPost],newPost: ''};
             case 'CHANGE-POST':
-                state.newPost = action.newPost;
-                return state;
+                return {...state,newPost:action.newPost};
             default:
                 return state;
         }

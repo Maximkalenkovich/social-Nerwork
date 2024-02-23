@@ -27,6 +27,7 @@ let mapDispatchToProps = (dispatch:Dispatch):maDispatchToPropsType =>{
     return{
         addMessage:(newMessage:string)=>{
             dispatch(addMessageActionCreate(newMessage))
+            dispatch(addMessageActionCreate(''))
         },
         onChangeMessage:(text:string)=>{
             dispatch(changeNewMessageActionCreate(text))
