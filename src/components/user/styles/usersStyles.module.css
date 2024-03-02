@@ -1,12 +1,17 @@
 .usersList {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .userContainer {
     display: flex;
     gap: 16px;
     align-items: center;
+    width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 .avatar {
@@ -14,22 +19,40 @@
     height: 50px;
     border-radius: 50%;
 }
+.buttonFollowed {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.buttonUnFollowed {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
 
 .userDetails {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    border: 1px solid #ccc;
-    padding: 8px;
-    width: 400px;
 }
 
 .username {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .status {
     font-style: italic;
+    font-size: 14px;
+    color: #666;
 }
 
 .address {

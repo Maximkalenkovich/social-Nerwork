@@ -1,4 +1,5 @@
 import {ActionType} from "./store";
+import photo from '../images/avatar.webp'
 
 
 interface Location {
@@ -25,7 +26,7 @@ const initialState: UsersInitialStateType = {
             id: 1,
             fullName: 'Max',
             status: 'i am boss',
-            photoUrl:'https://www.pnp.ru/upload/entities/2023/09/13/15/article/detailPicture/34/c2/f0/eb/b45b3e5f018ad9763d2f448a286de0a9.jpg',
+            photoUrl:photo,
             followed: true,
             location: {
                 city: 'Minsk',
@@ -35,7 +36,7 @@ const initialState: UsersInitialStateType = {
         {
             id: 2,
             fullName: 'John',
-            photoUrl:'https://www.pnp.ru/upload/entities/2023/09/13/15/article/detailPicture/34/c2/f0/eb/b45b3e5f018ad9763d2f448a286de0a9.jpg',
+            photoUrl:photo,
             status: 'i am John',
             followed: true,
             location: {
@@ -46,7 +47,7 @@ const initialState: UsersInitialStateType = {
         {
             id: 3,
             fullName: 'Anna',
-            photoUrl:'https://www.pnp.ru/upload/entities/2023/09/13/15/article/detailPicture/34/c2/f0/eb/b45b3e5f018ad9763d2f448a286de0a9.jpg',
+            photoUrl:photo,
             status: 'i am Anna',
             followed: false,
             location: {
@@ -57,7 +58,7 @@ const initialState: UsersInitialStateType = {
         {
             id: 4,
             fullName: 'Alex',
-            photoUrl:'https://www.pnp.ru/upload/entities/2023/09/13/15/article/detailPicture/34/c2/f0/eb/b45b3e5f018ad9763d2f448a286de0a9.jpg',
+            photoUrl:photo,
             status: 'i am Alex',
             followed: false,
             location: {
@@ -77,7 +78,9 @@ export const userReducer = (state:UsersInitialStateType = initialState, action: 
                 users: state.users.map(u => {
                     if (u.id === action.userID) {
                         return { ...u, followed: true };
-                    } })
+                    }
+                return u
+                })
             };
 
 
@@ -87,6 +90,7 @@ export const userReducer = (state:UsersInitialStateType = initialState, action: 
                   if (u.id===action.userID){
                       return{...u,followed:false}
                   }
+              return u
               })
           }
         case 'SET-USERS':

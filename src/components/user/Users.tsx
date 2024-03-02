@@ -8,10 +8,18 @@ export const Users = (props: UsersTypes) => {
             {props.usersPage.users.map((u) => (
                 <div className={s.userContainer} key={u.id}>
                     <div>
-                        <img src={u.photoUrl} alt="photo" className={s.avatar}/>
+                        <div>
+                            <img src={u.photoUrl} alt="photo" className={s.avatar}/>
+                        </div>
+                        <div>
+                            {u.followed ? <button onClick={()=>props.unfollow(u.id)} className={s.buttonUnFollowed}>unfollow</button>:
+                                <button onClick={()=>props.follow(u.id)} className={s.buttonFollowed}>follow</button>
+                            }
+
+                        </div>
 
                     </div>
-                    <button>fdvwvw</button>
+
                     <div className={s.userDetails}>
                         <div className={s.username}>{u.fullName}</div>
                         <div className={s.status}>{u.status}</div>
