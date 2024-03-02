@@ -1,23 +1,24 @@
 import React, {ChangeEvent} from "react";
 import {Post} from "./post/Post";
-import {ProfilePageType} from "../../../redux/store";
+import {ProfileType} from "../../../redux/profileReducer";
 
 
 type ProfilePostType = {
     updateNewPostText: (newPost: string) => void
     addPost: (text: string) => void
-    profilePage: ProfilePageType
+    posts:ProfileType[]
+    newPost:string
 }
 
 export const Mypost: React.FC<ProfilePostType> = ({
-                                          profilePage,
+                                          posts, newPost,
                                           updateNewPostText,
                                           addPost
                                       }) => {
 
 
     const onClickValue = () => {
-        addPost(profilePage.newPost)
+        addPost(newPost)
     }
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let currentPost = (e.currentTarget.value)
@@ -27,9 +28,9 @@ export const Mypost: React.FC<ProfilePostType> = ({
     return (
         <div>
             <div>new post</div>
-            <textarea value={profilePage.newPost} onChange={onChangeHandler}></textarea>
+            <textarea value={newPost} onChange={onChangeHandler}></textarea>
             <button onClick={onClickValue}>add message</button>
-            {profilePage.dataPost.map(post => <Post message={post.message} like={post.like}/>)}
+            {posts.map(post => <Post message={post.message} key={post.id} like={post.like}/>)}
         </div>
 
     )

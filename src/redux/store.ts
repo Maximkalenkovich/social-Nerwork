@@ -6,6 +6,7 @@ import dialogsReducer, {
     MessageType
 } from "./dialogsReducer";
 import sidebarReducer from "./sidebarReducer";
+import {followActionCreator, setUsers, unFollowActionCreator} from "./userReducer";
 
 
 
@@ -39,7 +40,8 @@ export type StoreType = {
 export type ActionType = ReturnType<typeof addPostActionCreate> |
     ReturnType<typeof changeNewPostActionCreate> |
     ReturnType<typeof changeNewMessageActionCreate> |
-    ReturnType<typeof addMessageActionCreate>
+    ReturnType<typeof addMessageActionCreate>|ReturnType<typeof followActionCreator>|
+    ReturnType<typeof unFollowActionCreator>|ReturnType<typeof setUsers>
 
 let store: StoreType = {
     _state: {

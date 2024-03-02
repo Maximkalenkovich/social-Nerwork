@@ -29,13 +29,13 @@ const onChangeHandlerMessage = (e: ChangeEvent<HTMLTextAreaElement>)=>{
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
                 {
-                   dialogPage.dataDialogs.map((dialog)=>(<DialogItem name={dialog.name} id={dialog.id}/>))
+                   dialogPage.dataDialogs.map((dialog)=>(<DialogItem key={dialog.id} name={dialog.name} id={dialog.id}/>))
                 }
 
             </div>
             <div className={s.messages}>
                 {
-                    dialogPage.dataMessage.map(el => <Message message={el.message}/>)
+                    dialogPage.dataMessage.map(el => <Message message={el.message} key={el.id}/>)
                 }
                 <textarea value={dialogPage.newMessage} onChange={onChangeHandlerMessage}></textarea>
                 <button onClick={addMessageButton}>отправить</button>
