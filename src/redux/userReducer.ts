@@ -1,19 +1,18 @@
 import {ActionType} from "./store";
-import photo from '../images/avatar.webp'
 
 
-interface Location {
-    city: string;
-    country: string;
+
+interface Photos {
+    small: null | string;
+    large: null | string;
 }
 
 export interface User {
+    name: string;
     id: number;
-    fullName: string;
-    status: string;
+    photos: Photos;
+    status: null | string;
     followed: boolean;
-    location: Location;
-    photoUrl:string
 }
 
 export interface UsersInitialStateType {
@@ -22,50 +21,7 @@ export interface UsersInitialStateType {
 
 const initialState: UsersInitialStateType = {
     users: [
-        {
-            id: 1,
-            fullName: 'Max',
-            status: 'i am boss',
-            photoUrl:photo,
-            followed: true,
-            location: {
-                city: 'Minsk',
-                country: 'Belarus'
-            }
-        },
-        {
-            id: 2,
-            fullName: 'John',
-            photoUrl:photo,
-            status: 'i am John',
-            followed: true,
-            location: {
-                city: 'New York',
-                country: 'USA'
-            }
-        },
-        {
-            id: 3,
-            fullName: 'Anna',
-            photoUrl:photo,
-            status: 'i am Anna',
-            followed: false,
-            location: {
-                city: 'Paris',
-                country: 'France'
-            }
-        },
-        {
-            id: 4,
-            fullName: 'Alex',
-            photoUrl:photo,
-            status: 'i am Alex',
-            followed: false,
-            location: {
-                city: 'Berlin',
-                country: 'Germany'
-            }
-        }
+
     ]
 };
 
@@ -94,7 +50,7 @@ export const userReducer = (state:UsersInitialStateType = initialState, action: 
               })
           }
         case 'SET-USERS':
-            return {...state,users: [...state.users,...action.users]}
+            return {...state,users:[...state.users,...action.users]}
         default:
             return state;
     }

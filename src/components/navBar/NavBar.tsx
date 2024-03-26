@@ -16,7 +16,8 @@ const titleNavBar = [
     {path: '/dialogs', name: 'Message'},
     {path: '/news', name: 'News'},
     {path: '/music', name: 'Music'},
-    {path: '/setting', name: 'Settings'}
+    {path: '/setting', name: 'Settings'},
+    {path: '/users', name: 'Users'}
 ]
 
         return (
